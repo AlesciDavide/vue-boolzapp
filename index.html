@@ -25,7 +25,7 @@
                     <section class="personalUser flexCenter flexSpace">
                         <div class="flexCenter">
                             <img class="personaluserImg" src="./img/avatar_1.jpg" alt="">
-                            <p class="marginLC">asd</p>
+                            <p class="marginLC">Davide</p>
                         </div>
                         <div class="flexCenter">
                             <i class="fa-solid fa-circle-notch"></i>
@@ -42,10 +42,12 @@
                     </div>
                     <div class="flexCenter">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input id="ricerca" type="text" placeholder="Ultimo messaggio inviato">
+                        <input id="ricerca" type="text" placeholder="Ultimo messaggio inviato"
+                        v-model="searchUser">
                     </div>
-                    <ul class="user flexCenter" v-for="(user, index) in contacts" key="index">
-                        <li class="flexCenter flexSpace myWidth100" :class="(index == activeIndex) ? 'utenteAttivo' : '' " @click="userActive(index)">
+                    <div>
+                        <ul class="user flexCenter" >
+                        <li v-for="(user, index) in contacts" key="index" class="flexCenter flexSpace myWidth100" :class="(index == activeIndex) ? 'utenteAttivo' : '' " @click="userActive(index)">
                             <div  class="flexCenter">
                                 <img class="userImg" :src=`${user.avatar}.jpg` alt="">
                                 <div class="nameUser">
@@ -58,6 +60,8 @@
                             </div>
                         </li>
                     </ul>
+                    </div>
+                    
                 </div>
                 <!-- chat -->
                 <div id="chat">

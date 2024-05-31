@@ -99,6 +99,10 @@ main{
 
 .user{
     height: 70px;
+    flex-direction: column;
+}
+.over{
+    overflow-y: scroll;
 }
 
 .user li{

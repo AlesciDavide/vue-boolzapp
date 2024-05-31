@@ -167,7 +167,8 @@ createApp({
                 }
             ],
             activeIndex: 0,
-            sendMessage: ''
+            sendMessage: '',
+            searchUser: ''
         }
     },
     methods:{
@@ -193,7 +194,17 @@ createApp({
                 this.contacts[this.activeIndex].messages.push(newMessageformin);
             },1000)
         },
+        /*  searchUsers: function(){
+            if(this.contacts.name.includes(this.searchUsers)){
+                console.log('eja');
+            }else{
+                console.log('no');
+            }
+            
+
+        } */
     },
+
     
 
 }).mount('#app')
