@@ -3,7 +3,17 @@
     margin: 0;
     box-sizing: border-box;
 }
+.flexCenter{
+    display: flex;
+    align-items: center;
+}
+.flexSpace{
+    justify-content: space-between;
+}
 
+i{
+    margin: 0 .5rem;
+}
 .container{
     width: 100vw;
     height: 100vh;
@@ -42,11 +52,19 @@ main{
 #chat{
     width: 70%;
     background-color: blue;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 
-.userActive{
+.personalUser{
     height: 50px;
     background-color: #eaeaea;
+}
+.personaluserImg{
+    height: 45px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
 }
 
 .notifica{
@@ -60,12 +78,36 @@ main{
 }
 
 .user{
-    display: flex;
     height: 60px;
+    overflow-y: scroll;
+    border: 2px solid black;
 }
 
 .userImg{
     height: 55px;
     aspect-ratio: 1/1;
     border-radius: 50%;
+}
+
+.nameUser{
+    align-self: start;
+    padding-left: .5rem;
+}
+/* chat */
+
+.userActive{
+    height: 50px;
+    background-color: #eaeaea;
+    border-left: 1px solid black;
+    flex-grow: 0;
+}
+.chatMessage{
+    flex-grow: 1;
+}
+
+.sendMessage{
+    height: 50px;
+    background-color: #eaeaea;
+    border-left: 1px solid black;
+    flex-grow: 0;
 }
