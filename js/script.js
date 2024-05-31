@@ -173,8 +173,27 @@ createApp({
     methods:{
         userActive: function(index){
             this.activeIndex = index;
-        }
-    }
+        },
+        sendMessages: function(){
+            let newMessageform = {
+                date: '',
+                message: this.sendMessage,
+                status: 'sent'
+            };
+            this.contacts[this.activeIndex].messages.push(newMessageform);
+
+            this.sendMessage = '';
+            setTimeout(() =>{
+                let newMessageformin = {
+                    date: '',
+                    message: 'ok',
+                    status: 'received'
+                };
+    
+                this.contacts[this.activeIndex].messages.push(newMessageformin);
+            },1000)
+        },
+    },
     
 
 }).mount('#app')

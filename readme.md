@@ -20,3 +20,12 @@ Milestone 5 - opzionale
 milestone 1
 replico la grafica utilizando flexbox per posizionare 
 creo le chat con un v-for
+
+milestone 2 
+stampo i messagi tramite un v for e con la :class decido se il messaggio è inviato da me o ricevuto 
+con un indexavtive generalizzo la chat attiva
+
+milestone 3
+con una funzione e v-model e il comando push aggiungo un messaggio all'interlocutore
+e sempre nella funzione con un set timout ripeto la creazione di un messaggio ma in arrivo
+
