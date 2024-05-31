@@ -122,6 +122,10 @@ main{
 .myWidth100{
     width: 100%;
 }
+
+.utenteAttivo{
+    background-color: #e9ebeb;
+}
 /* chat */
 
 .userActive{

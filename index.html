@@ -45,8 +45,8 @@
                         <input id="ricerca" type="text" placeholder="Ultimo messaggio inviato">
                     </div>
                     <ul class="user flexCenter" v-for="(user, index) in contacts" key="index">
-                        <li class="flexCenter flexSpace myWidth100" >
-                            <div class="flexCenter">
+                        <li class="flexCenter flexSpace myWidth100" :class="(index == activeIndex) ? 'utenteAttivo' : '' " @click="userActive(index)">
+                            <div  class="flexCenter">
                                 <img class="userImg" :src=`${user.avatar}.jpg` alt="">
                                 <div class="nameUser">
                                     <h4>{{user.name}}</h4>
@@ -63,9 +63,9 @@
                 <div id="chat">
                     <section class="userActive flexCenter flexSpace">
                         <div class="flexCenter">
-                                <img class="personaluserImg" src="./img/avatar_1.jpg" alt="">
+                                <img class="personaluserImg" :src=`${contacts[activeIndex].avatar}.jpg` alt="">
                                 <div>
-                                    <h4>nome</h4>
+                                    <h4>{{contacts[activeIndex].name}}</h4>
                                     <p>Ultimo Accesso</p>
                             </div>
                         </div>
@@ -76,15 +76,13 @@
                         </div>
                     </section>
                     <section class="chatMessage">
-                        <ul class="messageGeneral flexCenter">
-                            <li class="messaggioOut">hai buttato la pasta?</li>
-                            <li class="messaggioOut">hai buttato la pasta?</li>
-                            <li class="messaggioIn">no</li>
+                        <ul class="messageGeneral flexCenter"  v-for="(messaggi, index) in contacts[activeIndex].messages" key="index">
+                            <li :class="(messaggi.status == 'sent') ? 'messaggioOut' : 'messaggioIn'">{{messaggi.message}}</li>
                         </ul>
                     </section>
                     <section class="sendMessage flexCenter flexSpace">
                         <i class="fa-regular fa-face-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="sendMessage">
                         <i class="fa-solid fa-microphone"></i>
                     </section>
                 </div>

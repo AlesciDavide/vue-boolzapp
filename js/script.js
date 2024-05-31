@@ -165,7 +165,14 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            activeIndex: 0,
+            sendMessage: ''
+        }
+    },
+    methods:{
+        userActive: function(index){
+            this.activeIndex = index;
         }
     }
     
