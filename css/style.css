@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+header{
+    height: 15%;
+    background-color: #009688;
+}
+main{
+    height: 85%;
+    background-color: #d8dbd5;
+}
+
+#app{
+    position: absolute;
+    top: 1.8rem;
+    left: 50%;
+    transform: translate(-50%);
+    width: 80%;
+    height: 90%;
+    background-color: white;
+    display: flex;
+}
+
+
+#contatti{
+    width: 30%;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#chat{
+    width: 70%;
+    background-color: blue;
+}
+
+.userActive{
+    height: 50px;
+    background-color: #eaeaea;
+}
+
+.notifica{
+    height: 60px;
+    background-color: #8edafc;
+}
+
+#ricerca{
+    width: 100%;
+    height: 30px;
+}
+
+.user{
+    display: flex;
+    height: 60px;
+}
+
+.userImg{
+    height: 55px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
