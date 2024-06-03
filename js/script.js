@@ -211,7 +211,11 @@ createApp({
             for (let i=0; i< this.contacts[this.activeIndex].messages.lenght -1; i++){
                 this.arrayMessagesIndex.push(false);
             }
-            this.arrayMessagesIndex[index] = true;
+            if(this.arrayMessagesIndex[index] !== true){
+                this.arrayMessagesIndex[index] = true;
+            }else{
+                this.arrayMessagesIndex[index] = false;
+            }
             return this.arrayMessagesIndex[index]
             
             /* this.contacts[index].visible = !this.contacts[index].visible  */
