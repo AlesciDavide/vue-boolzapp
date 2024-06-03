@@ -117,10 +117,16 @@ main{
 .nameUser{
     align-self: start;
     padding-left: .5rem;
+    font-size: .8rem;
+
+}
+.nameUser > p{
+    width: 150px;
 }
 
 .orarioUser{
     align-self: flex-start;
+    font-size: .6rem;
 }
 .myWidth100{
     width: 100%;
@@ -171,6 +177,7 @@ main{
 
 .positionRel{
     position: relative;
+    margin-bottom: 15px;
 }
 .orarioInvio{
     align-self: end;

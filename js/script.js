@@ -167,33 +167,34 @@ createApp({
                     ],
                 }
             ],
-            activeIndex: 0,
+            UserActiveIndex: 0,
             sendMessage: '',
             searchUser: '', 
             messaggioCh: null,
+            dateSend: luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss'),
         }
     },
     methods:{
         userActive: function(index){
-            this.activeIndex = index;
+            this.UserActiveIndex = index;
             this.messaggioCh = null;
         },
         sendMessages: function(){
             let newMessageform = {
-                date: '',
+                date: this.dateSend,
                 message: this.sendMessage,
                 status: 'sent'
             };
-            this.contacts[this.activeIndex].messages.push(newMessageform);
+            this.contacts[this.UserActiveIndex].messages.push(newMessageform);
 
             this.sendMessage = '';
             setTimeout(() =>{
                 let newMessageformin = {
-                    date: '',
+                    date: this.dateSend,
                     message: 'ok',
                     status: 'received'
                 };
-                this.contacts[this.activeIndex].messages.push(newMessageformin);
+                this.contacts[this.UserActiveIndex].messages.push(newMessageformin);
             },1000)
         },
         searchUsers: function(user){
@@ -204,24 +205,17 @@ createApp({
             }
         },
         displayDeleteMessage(index){
-            this.messaggioCh = index
-           /*  if (this.messaggioCh == index) {
+            if (this.messaggioCh == index) {
                     this.messaggioCh = null;
             } else {
                 this.messaggioCh = index;
-            } */
+            }
             console.log(this.messaggioCh);
         },
         deleteMessage: function(index){
-            this.contacts[this.activeIndex].messages.splice(index, 1)
+            this.contacts[this.UserActiveIndex].messages.splice(index, 1)
             this.messaggioCh = null;
             console.log(this.messaggioCh);
-        }
+        },
     },
-    computed: {
-        resetIndexMessaggio(){
-            return this.messaggioCh = null;
-        }
-    }
-
 }).mount('#app')

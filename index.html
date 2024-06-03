@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <script src=" https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js "></script>
     <!-- font awasome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -52,16 +53,16 @@
                     </div>
                         <ul class="user flexCenter">
                             <li v-for="(user, index) in contacts" key="index" class="flexCenter flexSpace myWidth100"
-                                :class="(index == activeIndex) ? 'utenteAttivo' : '' " @click="userActive(index)" v-show="searchUsers(user)">
+                                :class="(index == UserActiveIndex) ? 'utenteAttivo' : '' " @click="userActive(index)" v-show="searchUsers(user)">
                                 <div class="flexCenter">
                                     <img class="userImg" :src=`${user.avatar}.jpg` alt="">
                                     <div class="nameUser">
                                         <h4>{{user.name}}</h4>
-                                        <p>Ultimo accesso</p>
+                                        <p>{{user.messages[user.messages.length - 1].message}}</p>
                                     </div>
                                 </div>
                                 <div class="orarioUser">
-                                    <p>12:00</p>
+                                    <p>{{(user.messages[user.messages.length - 1].date)}}</p>
                                 </div>
                             </li>
                         </ul>
@@ -70,9 +71,9 @@
                 <div id="chat">
                     <section class="userActive flexCenter flexSpace">
                         <div class="flexCenter">
-                            <img class="personaluserImg" :src=`${contacts[activeIndex].avatar}.jpg` alt="">
+                            <img class="personaluserImg" :src=`${contacts[UserActiveIndex].avatar}.jpg` alt="">
                             <div>
-                                <h4>{{contacts[activeIndex].name}}</h4>
+                                <h4>{{contacts[UserActiveIndex].name}}</h4>
                                 <p>Ultimo Accesso</p>
                             </div>
                         </div>
@@ -83,14 +84,15 @@
                         </div>
                     </section>
                     <section class="chatMessage">
-                        <ul class="messageGeneral flexCenter"
-                            v-for="(messaggi, index) in contacts[activeIndex].messages" :key="index">
+                        <ul class="messageGeneral flexCenter">
                             <li 
+                                v-for="(messaggi, index) in contacts[UserActiveIndex].messages" :key="index"
                                 class="positionRel" 
                                 :class="(messaggi.status == 'sent') ? 'messaggioOut' : 'messaggioIn'" 
-                                @click.right="displayDeleteMessage(index)">
+                                @click.right="displayDeleteMessage(index)"
+                                >
                                 {{messaggi.message}}
-                                <p class="orarioInvio" >12:00</p>
+                                <p class="orarioInvio" >{{messaggi.date}}</p>
                                 <div 
                                     v-if="messaggi.status == 'sent'"  
                                     class="popupDeleteMessage" 
