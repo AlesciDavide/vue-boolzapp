@@ -1,3 +1,4 @@
+document.addEventListener('contextmenu', event => event.preventDefault());
 const {createApp} = Vue
 
 createApp({
@@ -169,13 +170,13 @@ createApp({
             activeIndex: 0,
             sendMessage: '',
             searchUser: '', 
-            visiblePopUp: false,
-            arrayMessagesIndex: [],
+            messaggioCh: null,
         }
     },
     methods:{
         userActive: function(index){
             this.activeIndex = index;
+            this.messaggioCh = null;
         },
         sendMessages: function(){
             let newMessageform = {
@@ -185,9 +186,6 @@ createApp({
             };
             this.contacts[this.activeIndex].messages.push(newMessageform);
 
-            console.log(this.contacts[this.activeIndex].messages);
-            
-
             this.sendMessage = '';
             setTimeout(() =>{
                 let newMessageformin = {
@@ -195,7 +193,6 @@ createApp({
                     message: 'ok',
                     status: 'received'
                 };
-    
                 this.contacts[this.activeIndex].messages.push(newMessageformin);
             },1000)
         },
@@ -207,23 +204,24 @@ createApp({
             }
         },
         displayDeleteMessage(index){
-            console.log('we');
-            for (let i=0; i< this.contacts[this.activeIndex].messages.lenght -1; i++){
-                this.arrayMessagesIndex.push(false);
-            }
-            if(this.arrayMessagesIndex[index] !== true){
-                this.arrayMessagesIndex[index] = true;
-            }else{
-                this.arrayMessagesIndex[index] = false;
-            }
-            return this.arrayMessagesIndex[index]
-            
-            /* this.contacts[index].visible = !this.contacts[index].visible  */
-            
+            this.messaggioCh = index
+           /*  if (this.messaggioCh == index) {
+                    this.messaggioCh = null;
+            } else {
+                this.messaggioCh = index;
+            } */
+            console.log(this.messaggioCh);
         },
         deleteMessage: function(index){
             this.contacts[this.activeIndex].messages.splice(index, 1)
+            this.messaggioCh = null;
+            console.log(this.messaggioCh);
         }
     },
+    computed: {
+        resetIndexMessaggio(){
+            return this.messaggioCh = null;
+        }
+    }
 
 }).mount('#app')

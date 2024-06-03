@@ -193,7 +193,7 @@ main{
     flex-direction: column;
     background-color: white;
     border-radius: 5px;
-    left: 10px;
+    right: 10px;
     width: 150px;
     height: 75px;
     position: absolute;
