@@ -89,7 +89,7 @@
                                 {{messaggi.message}}
                                 <p class="orarioInvio" >12:00</p>
                                 <div v-if="messaggi.status == 'sent'"  class="popupDeleteMessage" :class="(!arrayMessagesIndex[index])? 'displayNone' : ''" >
-                                <p class="pDelete" @click="deleteMessage(activeIndex)">Delete message</p>
+                                <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
                                 <p class="pDelete">Info message</p>
                             </div>
                             <div v-else="messaggi.status == 'received'" class="popupDeleteMessageLeft" :class="(!arrayMessagesIndex[index])? 'displayNone' : ''" >
