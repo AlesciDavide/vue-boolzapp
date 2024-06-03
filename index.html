@@ -89,13 +89,13 @@
                                 {{messaggi.message}}
                                 <p class="orarioInvio" >12:00</p>
                                 <div v-if="messaggi.status == 'sent'"  class="popupDeleteMessage" :class="(contacts[index].visible)? 'displayNone' : ''" >
-                                    <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
-                                    <p class="pDelete">Info message</p>
-                                </div>
-                                <div v-else="messaggi.status == 'received'" class="popupDeleteMessageLeft" :class="(contacts[index].visible)? 'displayNone' : ''" >
-                                    <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
-                                    <p class="pDelete">Info message</p>
-                                </div>
+                                <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
+                                <p class="pDelete">Info message</p>
+                            </div>
+                            <div v-else="messaggi.status == 'received'" class="popupDeleteMessageLeft" :class="(contacts[index].visible)? 'displayNone' : ''" >
+                                <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
+                                <p class="pDelete">Info message</p>
+                            </div>
                             </li>
                             
                             
