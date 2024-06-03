@@ -156,7 +156,6 @@ main{
     margin-bottom: .5rem;
     border-radius: 8px;
     width: 40%;
-    position: relative;
 }
 
 .messaggioIn{
@@ -168,12 +167,43 @@ main{
     margin-bottom: .5rem;
     width: 40%;
     border-radius: 8px;
-    position: relative;
 }
 
+.positionRel{
+    position: relative;
+}
 .orarioInvio{
     align-self: end;
     font-size: .5rem;
+}
+
+.popupDeleteMessage{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    right: 45px;
+    width: 150px;
+    height: 75px;
+    position: absolute;
+}
+
+.popupDeleteMessageLeft{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    width: 150px;
+    height: 75px;
+    position: absolute;
+}
+
+.pDelete{
+    padding: 5px 10px;
+}
+
+.displayNone{
+    display: none;
 }
 
 .sendMessage{

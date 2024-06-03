@@ -168,7 +168,8 @@ createApp({
             ],
             activeIndex: 0,
             sendMessage: '',
-            searchUser: ''
+            searchUser: '',
+            showDeleteMessage: true,
         }
     },
     methods:{
@@ -200,6 +201,13 @@ createApp({
             }else{
                 return false;
             }
+        },
+        displayDeleteMessage(index){
+            console.log('we');
+            this.contacts[index].visible = !this.contacts[index].visible 
+        },
+        deleteMessage: function(index){
+            this.contacts[this.activeIndex].messages.splice(index, 1)
         }
     },
 

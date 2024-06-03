@@ -85,13 +85,23 @@
                     <section class="chatMessage">
                         <ul class="messageGeneral flexCenter"
                             v-for="(messaggi, index) in contacts[activeIndex].messages" key="index">
-                            <li :class="(messaggi.status == 'sent') ? 'messaggioOut' : 'messaggioIn'">
+                            <li class="positionRel" :class="(messaggi.status == 'sent') ? 'messaggioOut' : 'messaggioIn'" @click="displayDeleteMessage(index)">
                                 {{messaggi.message}}
                                 <p class="orarioInvio" >12:00</p>
+                                <div v-if="messaggi.status == 'sent'"  class="popupDeleteMessage" :class="(contacts[index].visible)? 'displayNone' : ''" >
+                                    <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
+                                    <p class="pDelete">Info message</p>
+                                </div>
+                                <div v-else="messaggi.status == 'received'" class="popupDeleteMessageLeft" :class="(contacts[index].visible)? 'displayNone' : ''" >
+                                    <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
+                                    <p class="pDelete">Info message</p>
+                                </div>
                             </li>
+                            
+                            
 
                         </ul>
-                        
+
                     </section>
                     <section class="sendMessage flexCenter flexSpace">
                         <i class="fa-regular fa-face-smile"></i>
