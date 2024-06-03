@@ -194,15 +194,13 @@ createApp({
                 this.contacts[this.activeIndex].messages.push(newMessageformin);
             },1000)
         },
-        /*  searchUsers: function(){
-            if(this.contacts.name.includes(this.searchUsers)){
-                console.log('eja');
+        searchUsers: function(user){
+            if(user.name.toLowerCase().includes(this.searchUser.toLowerCase())){
+                return true;
             }else{
-                console.log('no');
+                return false;
             }
-            
-
-        } */
+        }
     },
 
     

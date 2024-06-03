@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <!-- font awasome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- font family -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
     <title>vue-boolzapp</title>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -42,35 +48,32 @@
                     </div>
                     <div class="flexCenter">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input id="ricerca" type="text" placeholder="Ultimo messaggio inviato"
-                        v-model="searchUser">
+                        <input id="ricerca" type="text" placeholder="Ultimo messaggio inviato" v-model="searchUser">
                     </div>
-                    <div>
-                        <ul class="user flexCenter" >
-                        <li v-for="(user, index) in contacts" key="index" class="flexCenter flexSpace myWidth100" :class="(index == activeIndex) ? 'utenteAttivo' : '' " @click="userActive(index)">
-                            <div  class="flexCenter">
-                                <img class="userImg" :src=`${user.avatar}.jpg` alt="">
-                                <div class="nameUser">
-                                    <h4>{{user.name}}</h4>
-                                    <p>Ultimo Accesso</p>
+                        <ul class="user flexCenter">
+                            <li v-for="(user, index) in contacts" key="index" class="flexCenter flexSpace myWidth100"
+                                :class="(index == activeIndex) ? 'utenteAttivo' : '' " @click="userActive(index)" v-show="searchUsers(user)">
+                                <div class="flexCenter">
+                                    <img class="userImg" :src=`${user.avatar}.jpg` alt="">
+                                    <div class="nameUser">
+                                        <h4>{{user.name}}</h4>
+                                        <p>Ultimo Accesso</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="orarioUser">
-                                <p>12:00</p>
-                            </div>
-                        </li>
-                    </ul>
-                    </div>
-                    
+                                <div class="orarioUser">
+                                    <p>12:00</p>
+                                </div>
+                            </li>
+                        </ul>
                 </div>
                 <!-- chat -->
                 <div id="chat">
                     <section class="userActive flexCenter flexSpace">
                         <div class="flexCenter">
-                                <img class="personaluserImg" :src=`${contacts[activeIndex].avatar}.jpg` alt="">
-                                <div>
-                                    <h4>{{contacts[activeIndex].name}}</h4>
-                                    <p>Ultimo Accesso</p>
+                            <img class="personaluserImg" :src=`${contacts[activeIndex].avatar}.jpg` alt="">
+                            <div>
+                                <h4>{{contacts[activeIndex].name}}</h4>
+                                <p>Ultimo Accesso</p>
                             </div>
                         </div>
                         <div class="flexCenter">
@@ -80,21 +83,29 @@
                         </div>
                     </section>
                     <section class="chatMessage">
-                        <ul class="messageGeneral flexCenter"  v-for="(messaggi, index) in contacts[activeIndex].messages" key="index">
-                            <li :class="(messaggi.status == 'sent') ? 'messaggioOut' : 'messaggioIn'">{{messaggi.message}}</li>
+                        <ul class="messageGeneral flexCenter"
+                            v-for="(messaggi, index) in contacts[activeIndex].messages" key="index">
+                            <li :class="(messaggi.status == 'sent') ? 'messaggioOut' : 'messaggioIn'">
+                                {{messaggi.message}}
+                                <p class="orarioInvio" >12:00</p>
+                            </li>
+
                         </ul>
+                        
                     </section>
                     <section class="sendMessage flexCenter flexSpace">
                         <i class="fa-regular fa-face-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio" v-model="sendMessage" @keyup.enter="sendMessages">
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="sendMessage"
+                            @keyup.enter="sendMessages">
                         <i class="fa-solid fa-microphone"></i>
                     </section>
                 </div>
-                
+
             </div>
         </main>
     </div>
 
     <script src="./js/script.js"></script>
 </body>
+
 </html>
