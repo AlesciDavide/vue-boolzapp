@@ -168,8 +168,9 @@ createApp({
             ],
             activeIndex: 0,
             sendMessage: '',
-            searchUser: '',
-            
+            searchUser: '', 
+            visiblePopUp: false,
+            arrayMessagesIndex: [],
         }
     },
     methods:{
@@ -183,7 +184,9 @@ createApp({
                 status: 'sent'
             };
             this.contacts[this.activeIndex].messages.push(newMessageform);
+
             console.log(this.contacts[this.activeIndex].messages);
+            
 
             this.sendMessage = '';
             setTimeout(() =>{
@@ -205,14 +208,18 @@ createApp({
         },
         displayDeleteMessage(index){
             console.log('we');
-            this.contacts[index].visible = !this.contacts[index].visible 
+            for (let i=0; i< this.contacts[this.activeIndex].messages.lenght -1; i++){
+                this.arrayMessagesIndex.push(false);
+            }
+            this.arrayMessagesIndex[index] = true;
+            return this.arrayMessagesIndex[index]
+            
+            /* this.contacts[index].visible = !this.contacts[index].visible  */
             
         },
         deleteMessage: function(index){
             this.contacts[this.activeIndex].messages.splice(index, 1)
         }
     },
-
-    
 
 }).mount('#app')

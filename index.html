@@ -57,7 +57,7 @@
                                     <img class="userImg" :src=`${user.avatar}.jpg` alt="">
                                     <div class="nameUser">
                                         <h4>{{user.name}}</h4>
-                                        <p>Ultimo Accesso</p>
+                                        <p>Ultimo messaggio</p>
                                     </div>
                                 </div>
                                 <div class="orarioUser">
@@ -88,11 +88,11 @@
                             <li class="positionRel" :class="(messaggi.status == 'sent') ? 'messaggioOut' : 'messaggioIn'" @click="displayDeleteMessage(index)">
                                 {{messaggi.message}}
                                 <p class="orarioInvio" >12:00</p>
-                                <div v-if="messaggi.status == 'sent'"  class="popupDeleteMessage" :class="(contacts[index].visible)? 'displayNone' : ''" >
-                                <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
+                                <div v-if="messaggi.status == 'sent'"  class="popupDeleteMessage" :class="(displayDeleteMessage(index))? 'displayNone' : ''" >
+                                <p class="pDelete" @click="deleteMessage(activeIndex)">Delete message</p>
                                 <p class="pDelete">Info message</p>
                             </div>
-                            <div v-else="messaggi.status == 'received'" class="popupDeleteMessageLeft" :class="(contacts[index].visible)? 'displayNone' : ''" >
+                            <div v-else="messaggi.status == 'received'" class="popupDeleteMessageLeft" :class="(displayDeleteMessage(index))? 'displayNone' : ''" >
                                 <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
                                 <p class="pDelete">Info message</p>
                             </div>
