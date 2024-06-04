@@ -97,19 +97,22 @@
                                 :class="(messaggi.status == 'sent') ? 'messaggioOut' : 'messaggioIn'" 
                                 @click.right="displayDeleteMessage(index)"
                                 >
-                                {{messaggi.message}}
+                                <p>
+
+                                    {{messaggi.message}}
+                                </p>
                                 <p class="orarioInvio" >{{messaggi.date}}</p>
                                 <div 
                                     v-if="messaggi.status == 'sent'"  
                                     class="popupDeleteMessage" 
-                                    :class="(messaggioCh !== index || messaggioCh == null)? 'displayNone' : ''" 
+                                    :class="(checkPopUpDeleteMessage !== index || checkPopUpDeleteMessage == null)? 'displayNone' : ''" 
                                 >
                                 <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
                                 <p class="pDelete">Info message</p>
                             </div>
                             <div 
                             v-else="messaggi.status == 'received'" class="popupDeleteMessageLeft" 
-                            :class="(messaggioCh !== index || messaggioCh == null)? 'displayNone' : ''" >
+                            :class="(checkPopUpDeleteMessage !== index || checkPopUpDeleteMessage == null)? 'displayNone' : ''" >
                                 <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
                                 <p class="pDelete">Info message</p>
                             </div>

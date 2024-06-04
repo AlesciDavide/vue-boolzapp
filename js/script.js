@@ -170,14 +170,16 @@ createApp({
             UserActiveIndex: 0,
             sendMessage: '',
             searchUser: '', 
-            messaggioCh: null,
+            checkPopUpDeleteMessage: null,
             dateSend: luxon.DateTime.now().toFormat('HH:mm:ss'),
+            arrayFrasiPredefinite: ['ciao, Come stai?', 'Hai visto il tempo di oggi?', 'No', 'Veramente bello il mondo visto da qui!', 'Che ne dici di usare il vero WhatsApp invece di parlare da solo?', 'ok'],
+            counterRisposte: 0,
         }
     },
     methods:{
         userActive: function(index){
             this.UserActiveIndex = index;
-            this.messaggioCh = null;
+            this.checkPopUpDeleteMessage = null;
         },
         sendMessages: function(){
             if(this.sendMessage.trim().length > 0){
@@ -191,19 +193,20 @@ createApp({
                 this.sendMessage = '';
 
                 setTimeout(() =>{
-                    let newMessageformin = {
-                        date: this.dateSend,
-                        message: 'ok',
-                        status: 'received'
-                    };
-                    this.contacts[this.UserActiveIndex].messages.push(newMessageformin);
+                        this.counterRisposte = this.generateNumberRandom();
+                        let newMessageformin = {
+                            date: this.dateSend,
+                            message: this.arrayFrasiPredefinite[this.counterRisposte],
+                            status: 'received'
+                        };
+                        this.contacts[this.UserActiveIndex].messages.push(newMessageformin);
+                        
                 },1000)
-
             }
-
-
-            
-
+        },
+        generateNumberRandom: function(){
+            let num = Math.floor(Math.random() * (this.arrayFrasiPredefinite.length -1) + 1) ;
+            return num;
         },
         searchUsers: function(user){
             if(user.name.toLowerCase().includes(this.searchUser.toLowerCase())){
@@ -213,17 +216,17 @@ createApp({
             }
         },
         displayDeleteMessage(index){
-            if (this.messaggioCh == index) {
-                    this.messaggioCh = null;
+            if (this.checkPopUpDeleteMessage == index) {
+                    this.checkPopUpDeleteMessage = null;
             } else {
-                this.messaggioCh = index;
+                this.checkPopUpDeleteMessage = index;
             }
-            console.log(this.messaggioCh);
+            console.log(this.checkPopUpDeleteMessage);
         },
         deleteMessage: function(index){
             this.contacts[this.UserActiveIndex].messages.splice(index, 1)
-            this.messaggioCh = null;
-            console.log(this.messaggioCh);
+            this.checkPopUpDeleteMessage = null;
+            console.log(this.checkPopUpDeleteMessage);
         },
     },
 }).mount('#app')
