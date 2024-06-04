@@ -52,7 +52,7 @@
                         <input id="ricerca" type="text" placeholder="Ultimo messaggio inviato" v-model="searchUser">
                     </div>
                         <ul class="user flexCenter">
-                            <li v-for="(user, index) in contacts" key="index" class="flexCenter flexSpace myWidth100"
+                            <li v-for="(user, index) in contacts" key="index" class="flexCenter flexSpace myWidth100 hoverContact"
                                 :class="(index == UserActiveIndex) ? 'utenteAttivo' : '' " @click="userActive(index)" v-show="searchUsers(user)">
                                 <div class="flexCenter">
                                     <img class="userImg" :src=`${user.avatar}.jpg` alt="">

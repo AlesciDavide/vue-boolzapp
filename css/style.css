@@ -103,6 +103,10 @@ main{
     flex-direction: column;
 }
 
+.hoverContact:hover{
+    background-color: #c9c9c9;
+    cursor: pointer;
+}
 
 .user li{
     padding: .5rem;
@@ -133,7 +137,8 @@ main{
 }
 
 .utenteAttivo{
-    background-color: #e9ebeb;
+    background-color: #c9c9c9;
+    cursor: pointer;
 }
 /* chat */
 

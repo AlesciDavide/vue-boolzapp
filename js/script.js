@@ -171,7 +171,7 @@ createApp({
             sendMessage: '',
             searchUser: '', 
             messaggioCh: null,
-            dateSend: luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss'),
+            dateSend: luxon.DateTime.now().toFormat('HH:mm:ss'),
         }
     },
     methods:{
