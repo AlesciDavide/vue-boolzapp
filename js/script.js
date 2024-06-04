@@ -172,7 +172,7 @@ createApp({
             searchUser: '', 
             checkPopUpDeleteMessage: null,
             dateSend: luxon.DateTime.now().toFormat('HH:mm:ss'),
-            arrayFrasiPredefinite: ['ciao, Come stai?', 'Hai visto il tempo di oggi?', 'No', 'Veramente bello il mondo visto da qui!', 'Che ne dici di usare il vero WhatsApp invece di parlare da solo?', 'ok'],
+            arrayFrasiPredefinite: ['ciao, Come stai?', 'Hai visto il tempo di oggi?', 'No', 'Veramente bello il mondo visto da qui!', 'Che ne dici di usare il vero WhatsApp invece di parlare da solo?', 'ok', 'Diiiica... Vabbé!', 'un\' attimo e sono subitooo da lei'],
             counterRisposte: 0,
         }
     },

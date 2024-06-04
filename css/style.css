@@ -72,7 +72,7 @@ main{
 }
 
 .personalUser{
-    height: 50px;
+    height: 60px;
     background-color: #eaeaea;
 }
 .personaluserImg{
@@ -143,7 +143,7 @@ main{
 /* chat */
 
 .userActive{
-    height: 50px;
+    height: 60px;
     background-color: #eaeaea;
     flex-grow: 0;
 }
@@ -235,4 +235,5 @@ main{
 }
 .fa-paper-plane{
 color: #009688;
+cursor: pointer;
 }
