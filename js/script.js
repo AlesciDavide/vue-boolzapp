@@ -221,12 +221,10 @@ createApp({
             } else {
                 this.checkPopUpDeleteMessage = index;
             }
-            console.log(this.checkPopUpDeleteMessage);
         },
         deleteMessage: function(index){
             this.contacts[this.UserActiveIndex].messages.splice(index, 1)
             this.checkPopUpDeleteMessage = null;
-            console.log(this.checkPopUpDeleteMessage);
         },
     },
 }).mount('#app')

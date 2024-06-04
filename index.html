@@ -80,7 +80,7 @@
                             :src=`${contacts[UserActiveIndex].avatar}.jpg` alt="">
                             <div>
                                 <h4>{{contacts[UserActiveIndex].name}}</h4>
-                                <p>Ultimo Accesso</p>
+                                <p>{{contacts[UserActiveIndex].messages[(contacts[UserActiveIndex].messages.length) -1].date}}</p>
                             </div>
                         </div>
                         <div class="flexCenter">
