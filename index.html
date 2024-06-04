@@ -62,11 +62,14 @@
                                     <img class="userImg" :src=`${user.avatar}.jpg` alt="">
                                     <div class="nameUser">
                                         <h4>{{user.name}}</h4>
-                                        <p>{{user.messages[user.messages.length - 1].message}}</p>
+                                        <p v-if="user.messages.length - 1 > 0">{{user.messages[user.messages.length - 1].message}}</p>
+                                        <p v-else>Inizia una conversazione</p>
+                                        
                                     </div>
                                 </div>
                                 <div class="orarioUser">
-                                    <p>{{(user.messages[user.messages.length - 1].date)}}</p>
+                                    <p v-if="user.messages.length - 1 > 0">{{(user.messages[user.messages.length - 1].date)}}</p>
+                                    <p v-else></p>
                                 </div>
                             </li>
                         </ul>
@@ -80,7 +83,8 @@
                             :src=`${contacts[UserActiveIndex].avatar}.jpg` alt="">
                             <div>
                                 <h4>{{contacts[UserActiveIndex].name}}</h4>
-                                <p>{{contacts[UserActiveIndex].messages[(contacts[UserActiveIndex].messages.length) -1].date}}</p>
+                                <p v-if="contacts[UserActiveIndex].messages.length -1 > 0">{{contacts[UserActiveIndex].messages[(contacts[UserActiveIndex].messages.length) -1].date}}</p>
+                                <p v-else>Inizia una conversazione</p>
                             </div>
                         </div>
                         <div class="flexCenter">
