@@ -127,7 +127,11 @@
                             placeholder="Scrivi un messaggio" 
                             v-model="sendMessage"
                             @keyup.enter="sendMessages">
-                        <i class="fa-solid fa-microphone"></i>
+                            <i 
+                                class="fa-solid"
+                                :class="(sendMessage.trim().length > 0)? 'fa-paper-plane' : 'fa-microphone'"
+                                @click="sendMessages">
+                            </i>
                     </section>
                 </div>
 
