@@ -180,22 +180,30 @@ createApp({
             this.messaggioCh = null;
         },
         sendMessages: function(){
-            let newMessageform = {
-                date: this.dateSend,
-                message: this.sendMessage,
-                status: 'sent'
-            };
-            this.contacts[this.UserActiveIndex].messages.push(newMessageform);
-
-            this.sendMessage = '';
-            setTimeout(() =>{
-                let newMessageformin = {
+            if(this.sendMessage.trim().length > 0){
+                let newMessageform = {
                     date: this.dateSend,
-                    message: 'ok',
-                    status: 'received'
+                    message: this.sendMessage.trim(),
+                    status: 'sent'
                 };
-                this.contacts[this.UserActiveIndex].messages.push(newMessageformin);
-            },1000)
+
+                this.contacts[this.UserActiveIndex].messages.push(newMessageform);
+                this.sendMessage = '';
+
+                setTimeout(() =>{
+                    let newMessageformin = {
+                        date: this.dateSend,
+                        message: 'ok',
+                        status: 'received'
+                    };
+                    this.contacts[this.UserActiveIndex].messages.push(newMessageformin);
+                },1000)
+
+            }
+
+
+            
+
         },
         searchUsers: function(user){
             if(user.name.toLowerCase().includes(this.searchUser.toLowerCase())){

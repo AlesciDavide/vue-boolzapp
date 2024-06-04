@@ -52,8 +52,12 @@
                         <input id="ricerca" type="text" placeholder="Ultimo messaggio inviato" v-model="searchUser">
                     </div>
                         <ul class="user flexCenter">
-                            <li v-for="(user, index) in contacts" key="index" class="flexCenter flexSpace myWidth100 hoverContact"
-                                :class="(index == UserActiveIndex) ? 'utenteAttivo' : '' " @click="userActive(index)" v-show="searchUsers(user)">
+                            <li 
+                                v-for="(user, index) in contacts" 
+                                key="index" 
+                                class="flexCenter flexSpace myWidth100 hoverContact"
+                                :class="(index == UserActiveIndex) ? 'utenteAttivo' : '' " 
+                                @click="userActive(index)" v-show="searchUsers(user)">
                                 <div class="flexCenter">
                                     <img class="userImg" :src=`${user.avatar}.jpg` alt="">
                                     <div class="nameUser">
@@ -71,7 +75,9 @@
                 <div id="chat">
                     <section class="userActive flexCenter flexSpace">
                         <div class="flexCenter">
-                            <img class="personaluserImg" :src=`${contacts[UserActiveIndex].avatar}.jpg` alt="">
+                            <img 
+                            class="personaluserImg" 
+                            :src=`${contacts[UserActiveIndex].avatar}.jpg` alt="">
                             <div>
                                 <h4>{{contacts[UserActiveIndex].name}}</h4>
                                 <p>Ultimo Accesso</p>
@@ -101,7 +107,9 @@
                                 <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
                                 <p class="pDelete">Info message</p>
                             </div>
-                            <div v-else="messaggi.status == 'received'" class="popupDeleteMessageLeft" :class="(messaggioCh !== index || messaggioCh == null)? 'displayNone' : ''" >
+                            <div 
+                            v-else="messaggi.status == 'received'" class="popupDeleteMessageLeft" 
+                            :class="(messaggioCh !== index || messaggioCh == null)? 'displayNone' : ''" >
                                 <p class="pDelete" @click="deleteMessage(index)">Delete message</p>
                                 <p class="pDelete">Info message</p>
                             </div>
@@ -114,7 +122,10 @@
                     </section>
                     <section class="sendMessage flexCenter flexSpace">
                         <i class="fa-regular fa-face-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio" v-model="sendMessage"
+                        <input 
+                            type="text" 
+                            placeholder="Scrivi un messaggio" 
+                            v-model="sendMessage"
                             @keyup.enter="sendMessages">
                         <i class="fa-solid fa-microphone"></i>
                     </section>
