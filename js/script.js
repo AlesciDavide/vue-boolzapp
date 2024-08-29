@@ -191,7 +191,7 @@ createApp({
 
                 this.contacts[this.UserActiveIndex].messages.push(newMessageform);
                 this.sendMessage = '';
-
+                let UserActiveIndexPre = this.UserActiveIndex;
                 setTimeout(() =>{
                         this.counterRisposte = this.generateNumberRandom();
                         let newMessageformin = {
@@ -199,7 +199,7 @@ createApp({
                             message: this.arrayFrasiPredefinite[this.counterRisposte],
                             status: 'received'
                         };
-                        this.contacts[this.UserActiveIndex].messages.push(newMessageformin);
+                        this.contacts[UserActiveIndexPre].messages.push(newMessageformin);
                         
                 },1000)
             }
